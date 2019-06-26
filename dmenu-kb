@@ -1,0 +1,12 @@
+#!/bin/sh
+pgrep -x dmenu && exit
+
+choice=$(echo "gb" | dmenu -i -p "Please type the keymap you wish to use:") || exit 1
+
+if [ -z $choice ]; then
+    setxkbmap us
+
+
+else
+    setxkbmap $choice
+fi
